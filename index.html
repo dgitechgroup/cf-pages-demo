@@ -6,14 +6,19 @@
     </head>
     <body>
         <h1>WORST. DEMO. EVER</h1>
-        <div id="content"></div>
+        <ul id="params"></ul>
         <script>
             document.body.onload = printParams;
 
             function printParams() {
+                const listElement = document.getElementById('params');
                 const urlParams = new URLSearchParams(window.location.search);
                 for (const param of urlParams.entries()) {
                     console.log(`${param[0]}: ${param[1]}`);
+                    const listItemElement = document.createElement('li');
+                    const listItemContent = document.createTextNode(`${param[0]}: ${param[1]}`);
+                    listItemElement.appendChild(listItemContent);
+                    listElement.appendChild(listItemElement);
                 }
             }
         </script>
