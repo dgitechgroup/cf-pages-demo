@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Demo</title>
-  </head>
-  <body>
-    <div>
-      <h1>WORST. DEMO. EVER</h1>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+        <h1>WORST. DEMO. EVER</h1>
+        <div id="content"></div>
+        <script>
+            document.body.onload = printParams;
+
+            function printParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                for (const param of urlParams.entries()) {
+                    console.log(`${param[0]}: ${param[1]}`);
+                }
+            }
+        </script>
+    </body>
 </html>
